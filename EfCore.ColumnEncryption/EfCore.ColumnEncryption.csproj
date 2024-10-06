@@ -5,7 +5,7 @@
         <PackageId>EfCore.ColumnEncryption</PackageId>
         <Authors>Efe Yener</Authors>
         <Description>A secure column encryption library for Entity Framework Core using AES-GCM.</Description>
-        <RepositoryUrl>https://github.com/yourusername/EfCore.ColumnEncryption</RepositoryUrl>
+        <RepositoryUrl>https://github.com/efeynr/EfCore.ColumnEncryption</RepositoryUrl>
         <PackageTags>ef-core;column-encryption;encryption;aes-gcm;secure;entity-framework-core;data-protection</PackageTags>
         <NeutralLanguage>en-US</NeutralLanguage>
         <ImplicitUsings>enable</ImplicitUsings>
