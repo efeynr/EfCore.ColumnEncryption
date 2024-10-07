@@ -3,10 +3,15 @@
     <PropertyGroup>
         <TargetFramework>net8.0</TargetFramework>
         <PackageId>EfCore.ColumnEncryption</PackageId>
+        <Version>1.0.0</Version>
         <Authors>Efe Yener</Authors>
+        <Product>EfCore.ColumnEncryption</Product>
         <Description>A secure column encryption library for Entity Framework Core using AES-GCM.</Description>
-        <RepositoryUrl>https://github.com/efeynr/EfCore.ColumnEncryption</RepositoryUrl>
         <PackageTags>ef-core;column-encryption;encryption;aes-gcm;secure;entity-framework-core;data-protection</PackageTags>
+        <RepositoryUrl>https://github.com/efeynr/EfCore.ColumnEncryption</RepositoryUrl>
+        <PackageProjectUrl>https://github.com/efeynr/EfCore.ColumnEncryption</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageIcon>icon.png</PackageIcon>
         <NeutralLanguage>en-US</NeutralLanguage>
         <ImplicitUsings>enable</ImplicitUsings>
         <Owners>Efe Yener</Owners>
@@ -15,6 +20,9 @@
 
     <ItemGroup>
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8"/>
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="icon.png" Pack="true" PackagePath="\" />
     </ItemGroup>
 
 </Project>
