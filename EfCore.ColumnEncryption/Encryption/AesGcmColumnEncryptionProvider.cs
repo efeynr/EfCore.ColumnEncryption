@@ -83,7 +83,7 @@ public class AesGcmColumnEncryptionProvider : IColumnEncryptionProvider
             using var aesGcm = new AesGcm(_key, tagSizeInBytes: TagSize);
             aesGcm.Decrypt(iv, actualCipherText, tag, plaintextBytes);
         }
-        catch (CryptographicException ex)
+        catch (CryptographicException)
         {
             throw new InvalidOperationException("Decryption failed. The data may be corrupted or the key is incorrect.");
         }
