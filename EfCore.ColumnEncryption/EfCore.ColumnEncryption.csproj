@@ -4,7 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <PackageId>EfCore.ColumnEncryption</PackageId>
         <Authors>Efe Yener</Authors>
-        <Version>1.0.0</Version>
+        <Version>1.0.1</Version>
         <PackageReleaseNotes>Initial release with support for AES-GCM column encryption.</PackageReleaseNotes>
         <Product>EfCore.ColumnEncryption</Product>
         <Description>A secure column encryption library for Entity Framework Core using AES-GCM.</Description>
@@ -15,6 +15,7 @@
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
         <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <PackageReadmeFile>docs\README.md</PackageReadmeFile>
         <PackageIcon>icon.png</PackageIcon>
         <NeutralLanguage>en-US</NeutralLanguage>
         <ImplicitUsings>enable</ImplicitUsings>
@@ -27,7 +28,9 @@
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8"/>
     </ItemGroup>
     <ItemGroup>
-        <None Include="icon.png" Pack="true" PackagePath="\" />
+        <None Include="icon.png" Pack="true" PackagePath="" />
+        <None Include="..\README.md" Pack="true" PackagePath="docs\README.md" />
+
     </ItemGroup>
 
 </Project>
