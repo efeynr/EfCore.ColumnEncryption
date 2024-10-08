@@ -2,7 +2,7 @@
 
 *A secure column encryption library for Entity Framework Core using AES-GCM.*
 
-![iconfullsize](https://github.com/user-attachments/assets/f0badfdc-3086-46c7-abec-08ef4f3769bb)
+![EfCore.ColumnEncryption Logo](https://raw.githubusercontent.com/efeynr/EfCore.ColumnEncryption/main/Images/EfCoreColumnEncryptionLogo.png)
 
 
 ## Table of Contents
