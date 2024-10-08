@@ -4,7 +4,7 @@
         <TargetFramework>net8.0</TargetFramework>
         <PackageId>EfCore.ColumnEncryption</PackageId>
         <Authors>Efe Yener</Authors>
-        <Version>1.0.1</Version>
+        <Version>1.0.2</Version>
         <PackageReleaseNotes>Initial release with support for AES-GCM column encryption.</PackageReleaseNotes>
         <Product>EfCore.ColumnEncryption</Product>
         <Description>A secure column encryption library for Entity Framework Core using AES-GCM.</Description>
