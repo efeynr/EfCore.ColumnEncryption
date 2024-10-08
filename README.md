@@ -20,10 +20,8 @@
 - [Example](#example)
 - [Limitations](#limitations)
 - [Security Considerations](#security-considerations)
-- [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
-- [Acknowledgments](#acknowledgments)
 - [FAQ](#faq)
 - [Feedback](#feedback)
 - [Notes](#notes)
@@ -116,7 +114,6 @@ public class ApplicationDbContext : DbContext
         modelBuilder.UseColumnEncryption(_encryptionProvider);
     }
 
-    // DbSets...
     public DbSet<Customer> Customers { get; set; }
 }
 ```
@@ -132,9 +129,7 @@ services.AddSingleton<IColumnEncryptionProvider>(provider =>
 
 services.AddDbContext<ApplicationDbContext>((serviceProvider, options) =>
 {
-    options.UseSqlServer("YourConnectionString");
-    var encryptionProvider = serviceProvider.GetRequiredService<IColumnEncryptionProvider>();
-    options.UseColumnEncryption(encryptionProvider);
+    options.UseSqlServer("Your DbConnection credentials");
 });
 ```
 
@@ -193,28 +188,26 @@ using EfCore.ColumnEncryption.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
-builder.Services.AddSingleton<IColumnEncryptionProvider>(provider =>
+
+// Register the encryption provider
+builder.Services.AddSingleton<IColumnEncryptionProvider>(
+    new AesGcmColumnEncryptionProvider(Encoding.UTF8.GetBytes("yourEncryptionKeyInHere")));
+
+// Register the DbContext
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
 {
-    byte[] encryptionKey = Convert.FromBase64String("YourBase64EncodedKeyHere");
-    return new AesGcmColumnEncryptionProvider(encryptionKey);
+    options.UseSqlServer("connection string");
 });
 
-builder.Services.AddDbContext<ApplicationDbContext>((serviceProvider, options) =>
-{
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
-    var encryptionProvider = serviceProvider.GetRequiredService<IColumnEncryptionProvider>();
-    options.UseColumnEncryption(encryptionProvider);
-});
-
-// Other service configurations
+// ...
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// ...
 
 app.Run();
+
 ```
 
 **ApplicationDbContext.cs**
@@ -307,34 +300,10 @@ public class CustomersController : Controller
 
 - **Key Security**: Protect your encryption key using secure key management practices.
 - **Key Rotation**: Plan for key rotation and re-encryption strategies.
-- **Data Backup**: Ensure that backups are also secured, as encrypted data and keys are required for data restoration.
 
 ## Contributing
 
-Contributions are welcome! Please follow these steps:
-
-1. **Fork the Repository**
-   
-   Click the "Fork" button at the top right corner of the repository page to create a copy in your account.
-
-2. **Create a Feature Branch**
-   ```bash
-   git checkout -b feature/YourFeature
-   ```
-
-3. **Commit Your Changes**
-   ```bash
-   git commit -am 'Add new feature'
-   ```
-
-4. **Push to the Branch**
-   ```bash
-   git push origin feature/YourFeature
-   ```
-
-5. **Open a Pull Request**
-   
-   Submit your pull request with a detailed description of your changes.
+Contributions are welcome!
 
 ## License
 
@@ -346,10 +315,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Email**: efeyener6132@gmail.com
 - **GitHub**: [efeynr](https://github.com/efeynr)
 
-## Acknowledgments
-
-- Entity Framework Core Team
-- .NET Community
 
 ## FAQ
 
