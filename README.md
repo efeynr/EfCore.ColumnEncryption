@@ -68,7 +68,7 @@ dotnet add package EfCore.ColumnEncryption
 ### Package Reference
 Add the following line to the .csproj file of your project
 ```xml
-<PackageReference Include="EfCore.ColumnEncryption" Version="1.0.0" />
+<PackageReference Include="EfCore.ColumnEncryption" Version="1.0.2" />
 ```
 
 ## Getting Started
